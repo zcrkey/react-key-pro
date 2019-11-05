@@ -1,0 +1,90 @@
+$key-app-header-height: 90px;
+$key-app-sidebar-width: 240px;
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.key-app {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+
+  .key-app-header {
+    height: $key-app-header-height;
+    background-color: #3a4351;
+    display: flex;
+    flex-shrink: 0;
+
+    .key-app-logo {
+      display: flex;
+      flex-shrink: 0;
+      justify-content: center;
+      align-items: center;
+      width: $key-app-sidebar-width;
+      height: 100%;
+      border-right: 1px solid #fff;
+      color: #fff;
+      font-size: 26px;
+    }
+
+    .key-app-menu {
+      display: flex;
+      flex-grow: 1;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .key-app-user {
+      display: flex;
+      flex-shrink: 0;
+      justify-content: center;
+      align-items: center;
+      width: $key-app-sidebar-width - 80;
+      color: #fff;
+      border-left: 1px solid #fff;
+    }
+  }
+
+  .key-app-body {
+    background-color: #fff;
+    display: flex;
+    flex-grow: 1;
+
+    .key-app-sidebar {
+      display: flex;
+      flex-shrink: 0;
+      justify-content: center;
+      align-items: center;
+      width: $key-app-sidebar-width;
+      background-color: #3a4351;
+      border-top: 1px solid #fff;
+      color: #fff;
+    }
+
+    .key-app-main {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+
+      .key-app-tab {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        height: 46px;
+        background-color: #15a2ff;
+        color: #fff;
+      }
+
+      .key-app-content {
+        display: flex;
+        flex-grow: 1;
+      }
+    }
+  }
+}
