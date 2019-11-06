@@ -1,37 +1,16 @@
 import React from 'react';
-import './App.scss';
+import { BrowserRouter, Route } from "react-router-dom";
+import Main from './html/main/main';
+import Login from './html/login/login';
 
 function App() {
   return (
-    <div className="key-app">
-      <div className="key-app-header">
-        <div className="key-app-logo">
-          Logo
-        </div>
-        <div className="key-app-menu">
-          菜单栏
-        </div>
-        <div className="key-app-user">
-          信息
-        </div>
-      </div>
-      <div className="key-app-body">
-        <div className="key-app-sidebar">
-          侧边栏
-        </div>
-        <div className="key-app-main">
-          <div className="key-app-tab">
-            标签栏
-          </div>
-          <div className="key-app-content">
-            内容区
-            <div style={{ height: 900 }}>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <BrowserRouter>
+      {/* exact 严格匹配 */}
+      <Route exact path="/" component={Main} />
+      <Route exact path="/main" component={Main} />
+      <Route path="/login" component={Login} />
+    </BrowserRouter>
   );
 }
 
