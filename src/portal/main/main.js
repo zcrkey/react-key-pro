@@ -31,6 +31,7 @@ export default class Main extends React.Component {
             </div>
             <div className="key-app-content">
               内容区
+              {this.props.children || "Welcome"}
               <div style={{ height: 900 }}>
 
               </div>
