@@ -1,4 +1,7 @@
 import React from 'react';
+import { Route } from "react-router-dom";
+import Home from '../home/home';
+import MainRouter from './main.router';
 
 export default class Main extends React.Component {
 
@@ -31,10 +34,11 @@ export default class Main extends React.Component {
             </div>
             <div className="key-app-content">
               内容区
-              {this.props.children || "Welcome"}
-              <div style={{ height: 900 }}>
-
-              </div>
+              {/* {MainRouter} */}
+              <Route path="/home">
+                <h3>Please select a topic.</h3>
+              </Route>
+              <div style={{ height: 900 }}></div>
             </div>
           </div>
         </div>
