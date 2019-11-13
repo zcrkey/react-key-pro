@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
-import Main from './portal/main/main';
-import Login from './portal/login/login';
-import Register from './portal/register/register';
+import Main from './project/main/main';
+import Login from './project/login/login';
+import Register from './project/register/register';
 
 function App() {
   return (

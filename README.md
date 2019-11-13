@@ -1,13 +1,17 @@
 # React
 
+### 全局安装脚手架
+  npm install -g create-react-app
+
 ### 创建项目
-    npm init react-app react-key
+  npm init react-app react-key
 
 ### 引入scss，用于实现将scss转成css
-    npm install sass-loader node-sass --save-dev
+  需安装python2.x版本
+  npm install sass-loader node-sass --save-dev
 
 ### 引入react-router-dom，用于实现路由跳转
-    npm install react-router-dom --save
+  npm install react-router-dom --save
 
 
 

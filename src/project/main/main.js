@@ -1,6 +1,5 @@
 import React from 'react';
-import { Route } from "react-router-dom";
-import Home from '../home/home';
+import { Link } from "react-router-dom";
 import MainRouter from './main.router';
 
 export default class Main extends React.Component {
@@ -21,24 +20,22 @@ export default class Main extends React.Component {
             菜单栏
           </div>
           <div className="key-app-user">
-            信息
+            用户信息
           </div>
         </div>
         <div className="key-app-body">
           <div className="key-app-sidebar">
-            侧边栏
+            <Link to="/main/home">Home Page</Link>
+            <Link to="/main/event-list">EventList Page</Link>
           </div>
           <div className="key-app-main">
             <div className="key-app-tab">
               标签栏
             </div>
             <div className="key-app-content">
-              内容区
-              {/* {MainRouter} */}
-              <Route path="/home">
-                <h3>Please select a topic.</h3>
-              </Route>
-              <div style={{ height: 900 }}></div>
+              <div>内容区</div>
+              <MainRouter></MainRouter>
+              {/* <div style={{ height: 900 }}></div> */}
             </div>
           </div>
         </div>

@@ -57,13 +57,18 @@ $key-app-sidebar-width: 240px;
 
     .key-app-sidebar {
       display: flex;
+      flex-direction: column;
       flex-shrink: 0;
-      justify-content: center;
-      align-items: center;
       width: $key-app-sidebar-width;
       background-color: #3a4351;
       border-top: 1px solid #fff;
       color: #fff;
+      padding: 10px 15px;
+
+      a {
+        color: #fff;
+        padding: 5px 0px;
+      }
     }
 
     .key-app-main {
@@ -83,7 +88,9 @@ $key-app-sidebar-width: 240px;
 
       .key-app-content {
         display: flex;
+        flex-direction: column;
         flex-grow: 1;
+        padding: 15px;
       }
     }
   }
