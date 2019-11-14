@@ -1,17 +1,22 @@
 # React
 
 ### 全局安装脚手架
-  npm install -g create-react-app
+  yarn add -g create-react-app
 
 ### 创建项目
-  npm init react-app react-key
+  yarn init react-app react-key
 
 ### 引入scss，用于实现将scss转成css
   需安装python2.x版本
-  npm install sass-loader node-sass --save-dev
+  yarn add sass-loader node-sass --save-dev
 
 ### 引入react-router-dom，用于实现路由跳转
-  npm install react-router-dom --save
+  yarn add react-router-dom --save
+
+### 引入FortAwesome/react-fontawesome图标库
+  yarn add @fortawesome/fontawesome-svg-core
+  yarn add @fortawesome/free-solid-svg-icons
+  yarn add @fortawesome/react-fontawesome
 
 
 
@@ -31,7 +36,7 @@
 
 ### 需要实现的功能
 
-#### 路由跳转
+#### 路由跳转（路由嵌套、路由传参、路由复用、路由拦截器）
 #### http
 #### 按钮
 #### 弹出层
