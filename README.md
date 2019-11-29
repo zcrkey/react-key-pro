@@ -1,26 +1,41 @@
 # React
 
-### 全局安装脚手架
+### 一、全局安装脚手架
+  ```
   yarn add -g create-react-app
+  ``` 
 
-### 创建项目
+### 二、创建项目
+  ```
   yarn init react-app react-key
+  ```
 
-### 引入scss，用于实现将scss转成css
-  需安装python2.x版本
+### 三、引入scss，用于实现将scss转成css
+  ```
+  需安装python2.x版本 TODO:安装node-sass又是会出错，可能原因是下载文件下载不了
   yarn add sass-loader node-sass --save-dev
+  ```
 
-### 引入react-router-dom，用于实现路由跳转
+### 四、引入react-router-dom，用于实现路由跳转
+  ```
   yarn add react-router-dom --save
+  ```
 
-### 引入FortAwesome/react-fontawesome图标库
+### 五、引入FortAwesome/react-fontawesome图标库
+  ```
   yarn add @fortawesome/fontawesome-svg-core
   yarn add @fortawesome/free-solid-svg-icons
   yarn add @fortawesome/react-fontawesome
+  ```
 
-
-
-
+  ```
+  在 app.js 全局引入
+  // 引入 fortawesome 图标库
+  import { library } from '@fortawesome/fontawesome-svg-core';
+  import { fas } from '@fortawesome/free-solid-svg-icons';
+  // 全部引入
+  library.add(fas);
+  ```
 
 
 
@@ -31,7 +46,9 @@
 
 
 ### 暴露配置文件
-    npm run eject
+  ```
+  npm run eject
+  ```
 
 
 ### 需要实现的功能
