@@ -33,6 +33,9 @@ export default class Fontawesome extends React.Component {
         <FontAwesomeIcon style={styles.faIcon} icon="coffee" />
         <FontAwesomeIcon style={styles.faIcon} icon="comment-alt" />
         <FontAwesomeIcon style={styles.faIcon} icon="ad" />
+
+        <h4>IconFont</h4>
+        <i className="iconfont icon-danxuan"></i>
       </div>
     )
   }

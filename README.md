@@ -12,7 +12,7 @@
 
 ### 三、引入scss，用于实现将scss转成css
   ```
-  需安装python2.x版本 TODO:安装node-sass又是会出错，可能原因是下载文件下载不了
+  需安装python2.x版本 TODO:安装 node-sass 有时会出错，可能原因是下载文件下载不了
   yarn add sass-loader node-sass --save-dev
   ```
 
@@ -37,7 +37,7 @@
   library.add(fas);
   ```
 
-
+### 六、引入 IconFont 图标库
 
 
 
