@@ -9,6 +9,14 @@ export default class Main extends React.Component {
     this.state = {};
   }
 
+  componentDidMount() {
+    
+  }
+
+  componentWillUnmount() {
+
+  }
+
   render() {
     return (
       <div className="key-app">
@@ -27,7 +35,7 @@ export default class Main extends React.Component {
           <div className="key-app-sidebar">
             <Link to="/main/home">Home Page</Link>
             <Link to="/main/event-list">EventList Page</Link>
-            <Link to="/main/fontawesome">Fontawesome Page</Link>
+            <Link to="/main/icon">Icon Page</Link>
           </div>
           <div className="key-app-main">
             <div className="key-app-tab">

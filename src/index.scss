@@ -1,9 +1,9 @@
 @charset 'utf-8';
 
 /********公共样式********/
-@import './assets/scss/base.scss';
-@import './assets/scss/flex.scss';
-@import './assets/scss/iconfont.scss';
+@import "./assets/scss/base.scss"; // 基础
+@import "./assets/scss/flex.scss"; // flex 布局
+@import "./assets/iconfont/iconfont.css"; // iconfont 图标库
 
 /********页面样式********/
-@import './assets/scss/main.scss';
+@import "./assets/scss/main.scss";

@@ -38,7 +38,12 @@
   ```
 
 ### 六、引入 IconFont 图标库
+  ```
+  assets 文件夹中新建 iconfont 文件夹，下载相对应的 iconfont 图标库
 
+  在 index.scss 引入
+  @import "./assets/iconfont/iconfont.css"; // iconfont 图标库
+  ```
 
 
 
@@ -53,6 +58,7 @@
 
 ### 需要实现的功能
 
+#### 全局变量
 #### 路由跳转（路由嵌套、路由传参、路由复用、路由拦截器）
 #### http
 #### 按钮

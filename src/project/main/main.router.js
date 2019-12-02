@@ -11,7 +11,7 @@ import NoMatch from '../no-match/noMatch';
 import EventList from '../event/list';
 
 // 图标库
-import Fontawesome from '../fontawesome/fontawesome';
+import Icon from '../icon/icon';
 
 export default class MainRouter extends React.Component {
 
@@ -21,7 +21,7 @@ export default class MainRouter extends React.Component {
         <Route exact path="/main" component={Home} />
         <Route path="/main/home" component={Home} />
         <Route path="/main/event-list" component={EventList} />
-        <Route path="/main/fontawesome" component={Fontawesome} />
+        <Route path="/main/icon" component={Icon} />
         <Route path="*" component={NoMatch} />
       </Switch >
     )

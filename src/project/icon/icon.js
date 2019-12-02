@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const styles = {
   faIcon: {
+    display: 'inline-block',
     color: '#495057',
     textAlign: 'center',
     width: '5%',
@@ -10,7 +11,7 @@ const styles = {
   }
 };
 
-export default class Fontawesome extends React.Component {
+export default class Icon extends React.Component {
 
   constructor(props) {
     super(props);
@@ -34,8 +35,11 @@ export default class Fontawesome extends React.Component {
         <FontAwesomeIcon style={styles.faIcon} icon="comment-alt" />
         <FontAwesomeIcon style={styles.faIcon} icon="ad" />
 
-        <h4>IconFont</h4>
-        <i className="iconfont icon-danxuan"></i>
+        <h4><a href='https://www.iconfont.cn/' target='_blank'>IconFont</a></h4>
+        <i style={styles.faIcon} className="icon icon-danxuan"></i>
+        <i style={styles.faIcon} className="icon icon-yuanxingweixuanzhong"></i>
+        <i style={styles.faIcon} className="icon icon-fangxingxuanzhong"></i>
+        <i style={styles.faIcon} className="icon icon-fangxingweixuanzhong"></i>
       </div>
     )
   }
