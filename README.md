@@ -45,7 +45,10 @@
   @import "./assets/iconfont/iconfont.css"; // iconfont 图标库
   ```
 
-
+### 七、引入 OpenLayers
+  ```
+  yarn add ol
+  ```
 
 
 
@@ -58,6 +61,7 @@
 
 ### 需要实现的功能
 
+#### OpenLayers
 #### 全局变量
 #### 路由跳转（路由嵌套、路由传参、路由复用、路由拦截器）
 #### http
