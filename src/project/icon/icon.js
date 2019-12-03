@@ -2,6 +2,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const styles = {
+  title: {
+    marginBottom: '15px'
+  },
   faIcon: {
     display: 'inline-block',
     color: '#495057',
@@ -21,7 +24,7 @@ export default class Icon extends React.Component {
   render() {
     return (
       <div>
-        <h4><a href='http://fa5.dashgame.com/#/%E5%9B%BE%E6%A0%87' target='_blank'>Fontawesome - All 1544 Awesome Icons</a></h4>
+        <h4 style={styles.title}><a href='http://fa5.dashgame.com/#/%E5%9B%BE%E6%A0%87' target='_blank'>Fontawesome - All 1544 Awesome Icons</a></h4>
         <FontAwesomeIcon style={styles.faIcon} icon="align-center" />
         <FontAwesomeIcon style={styles.faIcon} icon="align-justify" />
         <FontAwesomeIcon style={styles.faIcon} icon="align-left" />
@@ -35,11 +38,12 @@ export default class Icon extends React.Component {
         <FontAwesomeIcon style={styles.faIcon} icon="comment-alt" />
         <FontAwesomeIcon style={styles.faIcon} icon="ad" />
 
-        <h4><a href='https://www.iconfont.cn/' target='_blank'>IconFont</a></h4>
+        <h4 style={styles.title}><a href='https://www.iconfont.cn/' target='_blank'>IconFont</a></h4>
         <i style={styles.faIcon} className="icon icon-danxuan"></i>
         <i style={styles.faIcon} className="icon icon-yuanxingweixuanzhong"></i>
         <i style={styles.faIcon} className="icon icon-fangxingxuanzhong"></i>
         <i style={styles.faIcon} className="icon icon-fangxingweixuanzhong"></i>
+
       </div>
     )
   }

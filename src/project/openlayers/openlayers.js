@@ -10,12 +10,11 @@ const styles = {
     height: '100%'
   },
   title: {
-    width: '100%',
-    height: '30px'
+    marginBottom: '15px'
   },
   mapBox: {
     width: '100%',
-    height: 'calc(100% - 75px)'
+    height: 'calc(100% - 35px)'
   }
 };
 
@@ -27,7 +26,7 @@ export default class Openlayers extends React.Component {
   }
 
   componentDidMount() {
-    let map = new Map({
+    new Map({
       target: 'map',
       // 一个图层是资源中数据的可视化显示
       layers: [
