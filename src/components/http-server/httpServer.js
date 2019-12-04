@@ -11,11 +11,31 @@ export default class HttpServer {
 
   /**
    * 处理响应数据
+   * @param {*} response 
    */
   static handleResponse(response) {
 
   }
 
-  
+  /**
+   * get 请求
+   */
+  static get() {
+
+  }
+
+  /**
+   * post 请求
+   */
+  static post() {
+
+  }
+
+  /**
+   * postJson 请求
+   */
+  static postJson() {
+
+  }
 
 }
