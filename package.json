@@ -9,7 +9,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-key"
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [

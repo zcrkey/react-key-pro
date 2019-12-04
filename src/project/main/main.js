@@ -10,7 +10,8 @@ export default class Main extends React.Component {
   }
 
   componentDidMount() {
-
+    // 模式：development、production、test
+    console.log("__NODE___：" + process.env.NODE_ENV);
   }
 
   componentWillUnmount() {
@@ -36,7 +37,9 @@ export default class Main extends React.Component {
             <Link to="/main/home">Home Page</Link>
             <Link to="/main/event-list">EventList Page</Link>
             <Link to="/main/icon">Icon Page</Link>
+            <Link to="/main/style">Style Page</Link>
             <Link to="/main/openlayers">Openlayers Page</Link>
+
           </div>
           <div className="key-app-main">
             <div className="key-app-tab">

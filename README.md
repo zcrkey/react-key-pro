@@ -12,7 +12,7 @@
 
 ### 三、引入scss，用于实现将scss转成css
   ```
-  需安装python2.x版本 TODO:安装 node-sass 有时会出错，可能原因是下载文件下载不了
+  // 需安装python2.x版本 TODO:安装 node-sass 有时会出错，可能原因是下载文件下载不了
   yarn add sass-loader node-sass --save-dev
   ```
 
@@ -50,18 +50,34 @@
   yarn add ol
   ```
 
+### 八、开发模式、测试模式、产品模式
+  ```
+  // 模式：development、test、production
+  console.log("__NODE___：" + process.env.NODE_ENV);
+  ```
 
-
+### 九、样式
+  * 字体大小（font-size）建议用 rem 作为单位  12px = 0.12rem 14px = 0.14rem 以此类推
+  * 局部样式
+    ```
+    样式文件命名： xxx.module.scss 或者 xxx.module.css
+    引入 import xxx from 'xxx.module.scss';
+    ```
 
 ### 暴露配置文件
   ```
   npm run eject
   ```
 
+### 新增 webpack 打包配置项 TODO：待测试
+  ```
+  yarn add react-app-rewired --save-dev
+  ```
 
 ### 需要实现的功能
 
-#### 初始化样式
+#### 开发环境标识
+#### 初始化样式(字体 rem 实现)
 #### OpenLayers
 #### 全局变量
 #### 路由跳转（路由嵌套、路由传参、路由复用、路由拦截器）

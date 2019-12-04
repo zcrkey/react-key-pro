@@ -1,5 +1,12 @@
 import React from 'react';
 
+const styles = {
+  title: {
+    fontSize: '0.2rem',
+    marginBottom: '15px'
+  }
+};
+
 export default class Home extends React.Component {
 
   constructor(props) {
@@ -9,7 +16,10 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <h4>Home</h4>
+      <div>
+        <h4 style={styles.title}>Home</h4>
+      </div >
+
     )
   }
 }

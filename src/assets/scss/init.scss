@@ -1,35 +1,85 @@
 @charset 'utf-8';
 
-// TODO：待完善
-
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 100px; // 建议页面内字体全部用 rem  作为单位  12px = 0.12rem 14px = 0.14rem
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+body {
+  color: #000;
+  line-height: 1.5;
+  font-size: 16px;
+  // font-family: "PingFangSC-Regular", "helvetica neue", tahoma, "PingFang SC", "microsoft yahei", arial, "hiragino sans gb", sans-serif;
+  font-family: "arial", "sans-serif";
+  // 字体抗锯齿渲染
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+}
+
+html,
 body,
+div,
+span,
+applet,
+object,
+iframe,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-hr,
 p,
 blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
 dl,
 dt,
 dd,
-ul,
 ol,
+ul,
 li,
-pre,
-form,
 fieldset,
+form,
+label,
 legend,
-button,
-input,
-textarea,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
 th,
 td {
   margin: 0;
@@ -37,24 +87,58 @@ td {
 }
 
 ul,
-ol {
+ol,
+li {
   list-style: none;
 }
 
 img {
   border: none;
+  vertical-align: bottom;
 }
 
-// table {
-//   border-collapse: collapse;
-//   border-spacing: 0;
+a,
+a:link,
+a:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+a:active,
+a:focus,
+a:hover {
+  color: #338fff;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+textarea {
+  resize: none;
+  min-height: 52px;
+}
+
+// button,
+// input,
+// optgroup,
+// select,
+// textarea {
+//   color: inherit;
+//   font: inherit;
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   background: 0;
 // }
 
-// a {
+// button:focus,
+// input:focus,
+// optgroup:focus,
+// select:focus,
+// textarea:focus {
 //   text-decoration: none;
-// }
-
-// a:hover {
-//   text-decoration: none;
-//   cursor: pointer;
+//   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+//   outline: none;
 // }

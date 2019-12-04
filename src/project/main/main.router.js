@@ -13,6 +13,9 @@ import EventList from '../event/list';
 // 图标库
 import Icon from '../icon/icon';
 
+// 样式
+import Style from '../style/style';
+
 // Openlayers 地图
 import Openlayers from '../openlayers/openlayers';
 
@@ -25,6 +28,7 @@ export default class MainRouter extends React.Component {
         <Route path="/main/home" component={Home} />
         <Route path="/main/event-list" component={EventList} />
         <Route path="/main/icon" component={Icon} />
+        <Route path="/main/style" component={Style} />
         <Route path="/main/openlayers" component={Openlayers} />
         <Route path="*" component={NoMatch} />
       </Switch >
