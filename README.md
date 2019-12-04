@@ -64,6 +64,12 @@
     引入 import xxx from 'xxx.module.scss';
     ```
 
+### 命名规则
+  * 文件夹命名规则： aaa-bbb-ccc 方式方式
+  * 文件命名规则： aaaBbbCcc 方式方式
+  * 代码（变量、方法）：小写字母开头，驼峰式命名方式
+
+
 ### 暴露配置文件
   ```
   npm run eject
