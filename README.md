@@ -64,6 +64,11 @@
     引入 import xxx from 'xxx.module.scss';
     ```
 
+### 十、引入 axios 库，封装http请求
+  ```
+  yarn add axios
+  ```
+
 ### 命名规则
   * 文件夹命名规则： aaa-bbb-ccc 方式方式
   * 文件命名规则： aaaBbbCcc 方式方式
@@ -87,7 +92,7 @@
 #### OpenLayers
 #### 全局变量
 #### 路由跳转（路由嵌套、路由传参、路由复用、路由拦截器）
-#### http
+#### http axios
 #### 按钮
 #### 弹出层
 #### 对话框
