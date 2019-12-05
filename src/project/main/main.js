@@ -38,6 +38,7 @@ export default class Main extends React.Component {
             <Link to="/main/event-list">EventList Page</Link>
             <Link to="/main/icon">Icon Page</Link>
             <Link to="/main/style">Style Page</Link>
+            <Link to="/main/request">Request Page</Link>
             <Link to="/main/openlayers">Openlayers Page</Link>
 
           </div>

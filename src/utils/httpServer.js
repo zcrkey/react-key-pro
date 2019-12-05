@@ -1,4 +1,9 @@
-import axios from 'axios';
+/**
+ * http 请求
+ */
+
+import Axios from 'axios';
+import GlobalDataUtils from './globalDataUtils';
 
 export default class HttpServer {
 
@@ -22,11 +27,16 @@ export default class HttpServer {
    * @param {*} response 
    */
   static handleResponse(response) {
-
+    if (response.status) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /**
    * 创建实例
+   * @param {*} settings {contentType,timeout}
    */
   static createInstance(settings) {
     let options = {
@@ -34,13 +44,13 @@ export default class HttpServer {
       timeout: 30 * 1000,
     };
     options = Object.assign(options, settings);
-    let instance = axios.create({
+    let instance = Axios.create({
       baseURL: this.getBaseUrl(),
       timeout: options.timeout,
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': options.contentType,
-        'zeus-token': '' // GlobalDataUtils.getToken()
+        'zeus-token': GlobalDataUtils.getToken()
       },
       responseType: 'json',
       transformResponse: [function (data) {
@@ -53,7 +63,39 @@ export default class HttpServer {
   /**
    * get 请求
    */
-  static get() {
+  static async get(url, params) {
+    try {
+      debugger;
+      let instance = this.createInstance();
+      console.log(typeof instance);
+      let response = await instance.get(url, { params: params });
+      debugger;
+      let responseData = response.data;
+      let status = this.handleResponse(responseData)
+      return new Promise((resolve, reject) => {
+        if (status) {
+          resolve({
+            status: true,
+            data: responseData.data
+          });
+        } else {
+          resolve({
+            status: false,
+            data: {}
+          });
+        }
+      });
+    } catch (error) {
+      console.log(error)
+    }
+
+    // https://www.jianshu.com/p/4168efdc172b
+    // let instance = this.createInstance();
+    // instance.get(url, { params: params }).then((response) => {
+    //   let responseData = response.data;
+    // }).catch((error) => {
+    //   console.log(error);
+    // })
   }
 
   /**
