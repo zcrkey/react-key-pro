@@ -18,37 +18,42 @@ export default class Request extends React.Component {
     };
   }
 
-  setToken() {
-    GlobalDataUtils.setToken("123");
-  }
-
-  getToken() {
-    this.setState({
-      token: GlobalDataUtils.getToken()
-    });
-  }
-
   async getRequest() {
-    debugger;
-    let { data } = await HttpServer.get('/aaa/aaa', {
+    let result = await HttpServer.get('/api/sys/init');
+    console.log(result);
+  }
+
+  async postRequest() {
+    let result = await HttpServer.post('/aaa/aaa', {
       a: 'aaa',
       b: 'bbb'
     });
-    console.log(data);
-    debugger;
+    console.log(result);
+  }
 
+  async postJsonRequest() {
+    let result = await HttpServer.postJson('/api/user/loginIn', {
+      clientType: "pc",
+      username: 'zcr',
+      password: '306306'
+    });
+    console.log(result);
+    if (!!result) {
+      GlobalDataUtils.setToken(result.token);
+    }
   }
 
   render() {
     return (
       <div>
         <h4 style={styles.title}>Request</h4>
-        <button onClick={() => { this.setToken() }}>设置token</button>
-        <button onClick={() => { this.getToken() }}>获取token</button>
-        <br />
         token:{this.state.token}
         <br />
         <button onClick={() => { this.getRequest() }}>get 请求</button>
+        <br />
+        <button onClick={() => { this.postRequest() }}>post 请求</button>
+        <br />
+        <button onClick={() => { this.postJsonRequest() }}>postJson 请求</button>
 
       </div >
 

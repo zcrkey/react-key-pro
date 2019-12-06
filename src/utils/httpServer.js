@@ -3,6 +3,7 @@
  */
 
 import Axios from 'axios';
+import Qs from 'qs';
 import GlobalDataUtils from './globalDataUtils';
 
 export default class HttpServer {
@@ -62,54 +63,73 @@ export default class HttpServer {
 
   /**
    * get 请求
+   * @param {*} url 
+   * @param {*} params 
    */
   static async get(url, params) {
     try {
-      debugger;
       let instance = this.createInstance();
-      console.log(typeof instance);
       let response = await instance.get(url, { params: params });
-      debugger;
       let responseData = response.data;
       let status = this.handleResponse(responseData)
       return new Promise((resolve, reject) => {
         if (status) {
-          resolve({
-            status: true,
-            data: responseData.data
-          });
+          resolve(responseData.data);
         } else {
-          resolve({
-            status: false,
-            data: {}
-          });
+          resolve();
         }
       });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-
-    // https://www.jianshu.com/p/4168efdc172b
-    // let instance = this.createInstance();
-    // instance.get(url, { params: params }).then((response) => {
-    //   let responseData = response.data;
-    // }).catch((error) => {
-    //   console.log(error);
-    // })
   }
 
   /**
    * post 请求
+   * @param {*} url 
+   * @param {*} params 
    */
-  static post() {
-
+  static async post(url, params) {
+    try {
+      let instance = this.createInstance({
+        contentType: 'application/x-www-form-urlencoded'
+      });
+      let response = await instance.post(url, Qs.stringify(params));
+      let responseData = response.data;
+      let status = this.handleResponse(responseData)
+      return new Promise((resolve, reject) => {
+        if (status) {
+          resolve(responseData.data);
+        } else {
+          resolve();
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   /**
    * postJson 请求
+   * @param {*} url 
+   * @param {*} params 
    */
-  static postJson() {
-
+  static async postJson(url, params) {
+    try {
+      let instance = this.createInstance();
+      let response = await instance.post(url, params);
+      let responseData = response.data;
+      let status = this.handleResponse(responseData)
+      return new Promise((resolve, reject) => {
+        if (status) {
+          resolve(responseData.data);
+        } else {
+          resolve();
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 }
