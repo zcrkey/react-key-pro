@@ -64,9 +64,10 @@
     引入 import xxx from 'xxx.module.scss';
     ```
 
-### 十、引入 axios 库，封装http请求
+### 十、引入 axios 库，封装http请求、引入 qs 库，序列化参数
   ```
   yarn add axios
+  yarn add qs
   ```
 
 ### 命名规则
