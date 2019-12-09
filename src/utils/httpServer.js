@@ -132,4 +132,38 @@ export default class HttpServer {
     }
   }
 
+  /**
+   * 并发请求
+   * @param {*} urls {url,method,data}
+   * @example
+   */
+  static async all(urls) {
+    let requests = [];
+    urls.forEach((request) => {
+      if (typeof request == 'string') {
+        requests.push(this.get(request));
+      } else if (typeof request == 'object') {
+        if (request.method == 'postJson') {
+          requests.push(this.postJson(request.url, request.data));
+        }
+        if (request.method == 'post') {
+          requests.push(this.post(request.url, request.data));
+        }
+        if (request.method == 'get') {
+          requests.push(this.get(request.url, request.data));
+        }
+      }
+    });
+    try {
+      let responseList = await Axios.all(requests);
+      return new Promise((resolve, reject) => {
+        resolve(responseList);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
+
+  }
+
 }

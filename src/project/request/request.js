@@ -43,6 +43,22 @@ export default class Request extends React.Component {
     }
   }
 
+  async allRequest() {
+    let result = await HttpServer.all([
+      '/api/sys/init',
+      {
+        url: '/api/user/loginIn',
+        method: 'postJson',
+        data: {
+          clientType: "pc",
+          username: 'zcr',
+          password: '306306'
+        }
+      }
+    ]);
+    console.log(result);
+  }
+
   render() {
     return (
       <div>
@@ -54,7 +70,8 @@ export default class Request extends React.Component {
         <button onClick={() => { this.postRequest() }}>post 请求</button>
         <br />
         <button onClick={() => { this.postJsonRequest() }}>postJson 请求</button>
-
+        <br />
+        <button onClick={() => { this.allRequest() }}>all 请求</button>
       </div >
 
     )

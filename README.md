@@ -93,7 +93,7 @@
 #### OpenLayers
 #### 全局变量
 #### 路由跳转（路由嵌套、路由传参、路由复用、路由拦截器）
-#### http axios qs （get、post、postJson、queue、upload、download）
+#### http axios qs （get、post、postJson、all、upload、download）
 #### 按钮
 #### 弹出层
 #### 对话框
