@@ -62,6 +62,34 @@ export default class HttpServer {
   }
 
   /**
+   * 创建上传实例
+   * @param {*} settings {contentType,timeout、onUploadProgress}
+   */
+  static createUploadInstance(settings) {
+    let options = {
+      contentType: 'multipart/form-data',
+      timeout: 30 * 1000,
+      onUploadProgress: () => { }
+    };
+    options = Object.assign(options, settings);
+    let instance = Axios.create({
+      baseURL: this.getBaseUrl(),
+      timeout: options.timeout,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': options.contentType,
+        'zeus-token': GlobalDataUtils.getToken()
+      },
+      responseType: 'json',
+      onUploadProgress: (progressEvent) => {
+        console.log(progressEvent);
+        options.onUploadProgress(progressEvent);
+      }
+    });
+    return instance;
+  }
+
+  /**
    * get 请求
    * @param {*} url 
    * @param {*} params 
@@ -162,7 +190,9 @@ export default class HttpServer {
     } catch (error) {
       console.log(error);
     }
+  }
 
+  static async upload() {
 
   }
 
