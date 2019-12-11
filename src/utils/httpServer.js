@@ -15,11 +15,11 @@ export default class HttpServer {
   static getBaseUrl() {
     let baseURL = '';
     if (process.env.NODE_ENV == 'development') {
-      baseURL = 'http://10.0.7.205:8080/demozz.api';
+      baseURL = 'https://food.tym.com.cn:20004/zz.api';
     } else if (process.env.NODE_ENV == 'debug') {
-      baseURL = 'http://10.0.7.205:8080/demozz.api';
+      baseURL = 'https://food.tym.com.cn:20004/zz.api';
     } else if (process.env.NODE_ENV == 'production') {
-      baseURL = 'http://10.0.7.205:8080/demozz.api';
+      baseURL = 'https://food.tym.com.cn:20004/zz.api';
     }
     return baseURL;
   }

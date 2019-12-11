@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import MainRouter from './main.router';
+import GlobalDataUtils from '../../utils/globalDataUtils';
 
 export default class Main extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  componentWillMount() {
+    this.isLogin();
   }
 
   componentDidMount() {
@@ -16,6 +21,14 @@ export default class Main extends React.Component {
 
   componentWillUnmount() {
 
+  }
+
+  isLogin() {
+    // 需要将 token 存到本地缓存中，或者存入
+    // let token = GlobalDataUtils.getToken();
+    // if (!token) {
+    //   this.props.history.replace('/login');
+    // }
   }
 
   render() {
