@@ -1,5 +1,6 @@
 /**
  * http 请求
+ * put 、 post 的区别（PUT请求：如果两个请求相同，后一个请求会把第一个请求覆盖掉。Post请求：后一个请求不会把第一个请求覆盖掉。）
  */
 
 import Axios from 'axios';
@@ -33,7 +34,7 @@ export default class HttpServer {
       let index = filePath.lastIndexOf(".");
       if (index > -1) {
         var length = filePath.length + '';
-        suffixName = (filePath.substring(index, length)).toLowerCase();
+        suffixName = (filePath.substring(index + 1, length)).toLowerCase();
       }
     }
     return suffixName;
@@ -125,6 +126,33 @@ export default class HttpServer {
   }
 
   /**
+   * 处理上传响应数据
+   * @param {*} response 
+   */
+  static handleUploadResponse(response) {
+    if (response.status) {
+      let uploadFileState = response.data.uploadResult.uploadFileState;
+      if (uploadFileState == 'Success') {
+        return true;
+      }
+      if (uploadFileState == 'FileExtensionInValid') {
+        // Dialog.fail('上传文件格式不正确');
+        return false;
+      }
+      if (uploadFileState == 'FileSizeTooMax') {
+        // Dialog.fail('上传文件大小超过限制');
+        return false;
+      }
+      if (uploadFileState == 'NotImageFormat') {
+        // Dialog.fail('上传文件非图片格式');
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  /**
    * 创建实例
    * @param {*} settings {contentType,timeout}
    */
@@ -156,22 +184,29 @@ export default class HttpServer {
    */
   static createUploadInstance(settings) {
     let options = {
-      contentType: 'multipart/form-data', // 'application/octet-stream' 下载
+      contentType: 'multipart/form-data',
       timeout: 30 * 1000,
       onUploadProgress: (progressEvent) => { }
     };
     options = Object.assign(options, settings);
     let instance = Axios.create({
-      baseURL: this.getBaseUrl(),
       timeout: options.timeout,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': options.contentType,
-        'zeus-token': GlobalDataUtils.getToken()
-      },
+      // TODO：自定义请求头信息失败
+      // headers: {
+      //   'Access-Control-Allow-Origin': '*',
+      //   'Content-Type': options.contentType,
+      //   'zeus-token': GlobalDataUtils.getToken()
+      // },
       responseType: 'json',
       onUploadProgress: (progressEvent) => {
-        console.log(progressEvent);
+        if (progressEvent.total != 0) {
+          let progress = progressEvent.loaded / progressEvent.total;
+          progressEvent.progress = parseFloat(progress.toFixed(2));
+        } else {
+          progressEvent.progress = 0;
+        }
+        // console.log(progressEvent);
+        // total：总大小、loaded：已上传大小、progress：上传进度
         options.onUploadProgress(progressEvent);
       }
     });
@@ -182,29 +217,29 @@ export default class HttpServer {
    * 创建下载实例
    * @param {*} settings {contentType,timeout、onDownloadProgress}
    */
-  static createDownloadInstance(settings) {
-    let options = {
-      contentType: 'application/octet-stream',
-      timeout: 30 * 1000,
-      onDownloadProgress: () => { }
-    };
-    options = Object.assign(options, settings);
-    let instance = Axios.create({
-      baseURL: this.getBaseUrl(),
-      timeout: options.timeout,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': options.contentType,
-        'zeus-token': GlobalDataUtils.getToken()
-      },
-      responseType: 'json',
-      onDownloadProgress: (progressEvent) => {
-        console.log(progressEvent);
-        options.onDownloadProgress(progressEvent);
-      }
-    });
-    return instance;
-  }
+  // static createDownloadInstance(settings) {
+  //   let options = {
+  //     contentType: 'application/octet-stream',
+  //     timeout: 30 * 1000,
+  //     onDownloadProgress: () => { }
+  //   };
+  //   options = Object.assign(options, settings);
+  //   let instance = Axios.create({
+  //     baseURL: this.getBaseUrl(),
+  //     timeout: options.timeout,
+  //     headers: {
+  //       'Access-Control-Allow-Origin': '*',
+  //       'Content-Type': options.contentType,
+  //       'zeus-token': GlobalDataUtils.getToken()
+  //     },
+  //     responseType: 'json',
+  //     onDownloadProgress: (progressEvent) => {
+  //       console.log(progressEvent);
+  //       options.onDownloadProgress(progressEvent);
+  //     }
+  //   });
+  //   return instance;
+  // }
 
   /**
    * get 请求
@@ -310,27 +345,26 @@ export default class HttpServer {
   }
 
   /**
-   * 上传
-   * @param {*} files
-   * @param {*} settings {type,name,suffixName}
+   * 上传 - 单个
+   * @param {*} file
+   * @param {*} settings {onUploadProgress}
    */
-  static async upload(files, settings) {
+  static async upload(file, settings) {
     try {
-      if (!!files) {
+      if (!!file) {
         let options = {
-          onUploadProgress: (progressEvent) => { }
+          onUploadProgress: () => { }
         };
         options = Object.assign(options, settings);
         let instance = this.createUploadInstance({
           onUploadProgress: options.onUploadProgress
         });
-        const formData = new FormData();
+        let formData = new FormData();
         // 这里的 file 与后台相对应，不能改变
-        formData.append('file', files);
-        let suffixName = this.getSuffixName(files.name);
+        formData.append('file', file);
+        let suffixName = this.getSuffixName(file.name);
         let url = this.getUploadTypeApi(suffixName);
-        // put 、 post 的区别（PUT请求：如果两个请求相同，后一个请求会把第一个请求覆盖掉。Post请求：后一个请求不会把第一个请求覆盖掉。）
-        let response = await instance.put(url, formData);
+        let response = await instance.post(url, formData);
         let responseData = response.data;
         let status = this.handleUploadResponse(responseData);
         return new Promise((resolve, reject) => {
@@ -344,6 +378,15 @@ export default class HttpServer {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  /**
+   * 上传 - 多个
+   * @param {*} files 
+   * @param {*} settings 
+   */
+  static async uploads(files, settings) {
+
   }
 
 

@@ -14,8 +14,12 @@ export default class Request extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      token: ''
+      token: '',
     };
+  }
+
+  componentDidMount() {
+
   }
 
   async getRequest() {
@@ -23,6 +27,8 @@ export default class Request extends React.Component {
     console.log(result);
     if (!!result) {
       await GlobalDataUtils.init(result);
+      // debugger;
+      // this.props.history.push({pathname:'home'})
     }
   }
 
