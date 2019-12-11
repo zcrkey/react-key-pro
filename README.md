@@ -20,6 +20,10 @@
   ```
   yarn add react-router-dom --save
   ```
+  * 路由嵌套
+  * 路由跳转
+  * 路由传参
+  * 路由复用
 
 ### 五、引入FortAwesome/react-fontawesome图标库
   ```
@@ -92,7 +96,7 @@
 #### 初始化样式(字体 rem 实现)
 #### OpenLayers
 #### 全局变量
-#### 路由跳转（路由嵌套、路由传参、路由复用、路由拦截器）
+#### 路由跳转（路由嵌套、路由跳转、路由传参、路由复用、路由拦截器）
 #### http axios qs （get、post、postJson、all、upload、uploads、download）
 #### Redux 
 #### 按钮
