@@ -6,6 +6,7 @@
 import Axios from 'axios';
 import Qs from 'qs';
 import GlobalDataUtils from './globalDataUtils';
+import LocalStorageUtils from './localStorageUtils';
 
 export default class HttpServer {
 
@@ -71,7 +72,6 @@ export default class HttpServer {
         return true;
       }
       if (response.code == '201') {
-        this.addErrorMessage();
         // Dialog.fail('没有权限请求！', {
         //   close: function () {
         //     Actions.reset('LoginPage', {
@@ -168,7 +168,7 @@ export default class HttpServer {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': options.contentType,
-        'zeus-token': GlobalDataUtils.getToken()
+        'zeus-token': LocalStorageUtils.getToken()
       },
       responseType: 'json',
       transformResponse: [function (data) {
@@ -195,7 +195,7 @@ export default class HttpServer {
       // headers: {
       //   'Access-Control-Allow-Origin': '*',
       //   'Content-Type': options.contentType,
-      //   'zeus-token': GlobalDataUtils.getToken()
+      //   'zeus-token': LocalStorageUtils.getToken()
       // },
       responseType: 'json',
       onUploadProgress: (progressEvent) => {
@@ -230,7 +230,7 @@ export default class HttpServer {
   //     headers: {
   //       'Access-Control-Allow-Origin': '*',
   //       'Content-Type': options.contentType,
-  //       'zeus-token': GlobalDataUtils.getToken()
+  //       'zeus-token': LocalStorageUtils.getToken()
   //     },
   //     responseType: 'json',
   //     onDownloadProgress: (progressEvent) => {

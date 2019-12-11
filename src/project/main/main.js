@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import MainRouter from './main.router';
-import GlobalDataUtils from '../../utils/globalDataUtils';
+import LocalStorageUtils from '../../utils/localStorageUtils';
 
 export default class Main extends React.Component {
 
@@ -24,11 +24,10 @@ export default class Main extends React.Component {
   }
 
   isLogin() {
-    // 需要将 token 存到本地缓存中，或者存入
-    // let token = GlobalDataUtils.getToken();
-    // if (!token) {
-    //   this.props.history.replace('/login');
-    // }
+    let token = LocalStorageUtils.getToken();
+    if (!token) {
+      this.props.history.replace('/login');
+    }
   }
 
   render() {

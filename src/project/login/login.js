@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HttpServer from '../../utils/httpServer';
 import GlobalDataUtils from '../../utils/globalDataUtils';
+import LocalStorageUtils from '../../utils/localStorageUtils';
 import styles from './login.module.scss';
 
 export default class Login extends React.Component {
@@ -53,7 +54,7 @@ export default class Login extends React.Component {
     });
     console.log('loginIn:', result);
     if (!!result) {
-      GlobalDataUtils.setToken(result.token);
+      LocalStorageUtils.setToken(result.token);
 
       // 跳转到 main 页面
       this.props.history.replace('/main');
