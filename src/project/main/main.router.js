@@ -34,7 +34,7 @@ export default class MainRouter extends React.Component {
         <Route path="/main/style" component={Style} />
         <Route path="/main/request" component={Request} />
         <Route path="/main/openlayers" component={Openlayers} />
-        <Route path="*" component={NoMatch} />
+        {/* <Route path="*" component={NoMatch} /> */}
       </Switch >
     )
   }

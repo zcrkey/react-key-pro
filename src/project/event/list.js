@@ -7,6 +7,10 @@ export default class EventList extends React.Component {
     this.state = {};
   }
 
+  componentWillMount() {
+    console.log('componentWillMount：event-list');
+  }
+
   onClickAdd() {
     alert("新增");
   }

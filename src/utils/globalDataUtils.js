@@ -46,4 +46,15 @@ export default class GlobalDataUtils {
     }
   }
 
+  /**
+   * 获取 code
+   * @param {*} codeNum 
+   */
+  static getCode(codeNum) {
+    var codeObject = GlobalData.codes.find((code) => {
+      return code.value == codeNum;
+    });
+    return codeObject;
+  }
+
 }
