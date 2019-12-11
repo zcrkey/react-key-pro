@@ -1,5 +1,15 @@
 # React
 
+### 开发环境
+* os: windows7
+* node: v10.16.1
+* npm: 6.9.0
+* yarn: 1.21.0
+* create-react-app: 3.2.0
+* react: 16.10.2
+
+### 开发流程
+
 ### 一、全局安装脚手架
   ```
   yarn add -g create-react-app
