@@ -16,9 +16,11 @@ export default class EventList extends React.Component {
 
     // 地址栏截取
     let search = this.props.location.search;
-    const searchParams = JSON.parse(decodeURI(search.split('?')[1]));
-    console.log('searchParams:', searchParams);
-
+    let paramsStr = search.split('?')[1];
+    if (paramsStr) {
+      const searchParams = JSON.parse(decodeURI(paramsStr));
+      console.log('searchParams:', searchParams);
+    }
   }
 
   onClickAdd() {

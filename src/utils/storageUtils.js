@@ -34,6 +34,7 @@ export default class StorageUtils {
    * 移除token
    */
   static removeToken() {
+    localStorage.removeItem(this.TOKEN_TIMEOUT_TIME);
     localStorage.removeItem(this.TOKEN);
   }
 

@@ -16,11 +16,11 @@ export default class Home extends React.Component {
   }
 
   componentDidMount() {
-    console.log("123");
   }
 
   logout() {
-    this.props.history.replace('/login');
+    StorageUtils.removeToken();
+    this.props.history.push('/login');
   }
 
   render() {

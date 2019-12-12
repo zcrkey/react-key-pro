@@ -14,7 +14,8 @@ export default class Main extends React.Component {
 
   UNSAFE_componentWillMount() {
     if (StorageUtils.isLoginTimeout()) {
-      this.props.history.replace('/login');
+      StorageUtils.removeToken();
+      this.props.history.push('/login');
     } else {
       this.initGlobalData();
     }
