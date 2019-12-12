@@ -1,4 +1,5 @@
 import React from 'react';
+import LocalStorageUtils from '../../utils/localStorageUtils';
 
 const styles = {
   title: {
@@ -34,6 +35,8 @@ export default class Home extends React.Component {
         <h4 style={styles.title}>Home</h4>
         <div>
           <button onClick={() => { this.logout() }}>注销</button>
+          <br />
+          <button onClick={() => { LocalStorageUtils.removeToken() }}>移除token</button>
           <br />
           <button onClick={() => { this.pushPage('/main/event-list') }}>EventList Page</button>
           <br />

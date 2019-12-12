@@ -11,7 +11,9 @@ export default class Main extends React.Component {
   }
 
   componentWillMount() {
-    this.isLogin();
+    if (LocalStorageUtils.isLoginTimeout()) {
+      this.props.history.replace('/login');
+    }
   }
 
   componentDidMount() {
@@ -21,13 +23,6 @@ export default class Main extends React.Component {
 
   componentWillUnmount() {
 
-  }
-
-  isLogin() {
-    let token = LocalStorageUtils.getToken();
-    if (!token) {
-      this.props.history.replace('/login');
-    }
   }
 
   render() {

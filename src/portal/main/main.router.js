@@ -1,26 +1,26 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
 
-// 首页
-import Home from '../home/home';
-
 // 404
 import NoMatch from '../no-match/noMatch';
 
+// 首页
+import Home from '../../project/home/home';
+
 // 事件
-import EventList from '../event/list';
+import EventList from '../../project/event/list';
 
 // 图标库
-import Icon from '../icon/icon';
+import Icon from '../../project/icon/icon';
 
 // 样式
-import Style from '../style/style';
+import Style from '../../project/style/style';
 
 // 数据请求
-import Request from '../request/request';
+import Request from '../../project/request/request';
 
 // Openlayers 地图
-import Openlayers from '../openlayers/openlayers';
+import Openlayers from '../../project/openlayers/openlayers';
 
 export default class MainRouter extends React.Component {
 
