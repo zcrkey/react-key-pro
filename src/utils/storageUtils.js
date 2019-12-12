@@ -1,4 +1,9 @@
-export default class LocalStorageUtils {
+/**
+ * 浏览器存储工具类
+ * localStorage 没有时间限制的数据存储(永久存储)
+ * sessionStorage 针对一个 session 的数据存储（关闭页面或浏览器后被清除）
+ */
+export default class StorageUtils {
 
   // 令牌
   static TOKEN = 'token';

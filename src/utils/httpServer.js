@@ -6,7 +6,7 @@
 import Axios from 'axios';
 import Qs from 'qs';
 import GlobalDataUtils from './globalDataUtils';
-import LocalStorageUtils from './localStorageUtils';
+import StorageUtils from './storageUtils';
 
 export default class HttpServer {
 
@@ -168,7 +168,7 @@ export default class HttpServer {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': options.contentType,
-        'zeus-token': LocalStorageUtils.getToken()
+        'zeus-token': StorageUtils.getToken()
       },
       responseType: 'json',
       transformResponse: [function (data) {
@@ -195,7 +195,7 @@ export default class HttpServer {
       // headers: {
       //   'Access-Control-Allow-Origin': '*',
       //   'Content-Type': options.contentType,
-      //   'zeus-token': LocalStorageUtils.getToken()
+      //   'zeus-token': StorageUtils.getToken()
       // },
       responseType: 'json',
       onUploadProgress: (progressEvent) => {
@@ -230,7 +230,7 @@ export default class HttpServer {
   //     headers: {
   //       'Access-Control-Allow-Origin': '*',
   //       'Content-Type': options.contentType,
-  //       'zeus-token': LocalStorageUtils.getToken()
+  //       'zeus-token': StorageUtils.getToken()
   //     },
   //     responseType: 'json',
   //     onDownloadProgress: (progressEvent) => {

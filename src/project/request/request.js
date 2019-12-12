@@ -1,6 +1,6 @@
 import React from 'react';
 import GlobalDataUtils from '../../utils/globalDataUtils';
-import LocalStorageUtils from '../../utils/localStorageUtils';
+import StorageUtils from '../../utils/storageUtils';
 import HttpServer from '../../utils/httpServer';
 
 const styles = {
@@ -28,8 +28,6 @@ export default class Request extends React.Component {
     console.log(result);
     if (!!result) {
       await GlobalDataUtils.init(result);
-      // debugger;
-      // this.props.history.push({pathname:'home'})
     }
   }
 
@@ -49,7 +47,7 @@ export default class Request extends React.Component {
     });
     console.log(result);
     if (!!result) {
-      LocalStorageUtils.setToken(result.token);
+      StorageUtils.setToken(result.token);
     }
   }
 

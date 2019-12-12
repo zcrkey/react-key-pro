@@ -7,8 +7,18 @@ export default class EventList extends React.Component {
     this.state = {};
   }
 
-  componentWillMount() {
+  componentDidMount() {
     console.log('componentWillMount：event-list');
+
+    // state 获取
+    let stateParams = this.props.location.state;
+    console.log("stateParams:", stateParams);
+
+    // 地址栏截取
+    let search = this.props.location.search;
+    const searchParams = JSON.parse(decodeURI(search.split('?')[1]));
+    console.log('searchParams:', searchParams);
+
   }
 
   onClickAdd() {

@@ -16,6 +16,9 @@ import Icon from '../../project/icon/icon';
 // 样式
 import Style from '../../project/style/style';
 
+// 路由
+import Router from '../../project/router/router';
+
 // 数据请求
 import Request from '../../project/request/request';
 
@@ -32,6 +35,7 @@ export default class MainRouter extends React.Component {
         <Route path="/main/event-list" component={EventList} />
         <Route path="/main/icon" component={Icon} />
         <Route path="/main/style" component={Style} />
+        <Route path="/main/router" component={Router} />
         <Route path="/main/request" component={Request} />
         <Route path="/main/openlayers" component={Openlayers} />
         {/* <Route path="*" component={NoMatch} /> */}

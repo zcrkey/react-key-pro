@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import HttpServer from '../../utils/httpServer';
+import GlobalDataUtils from '../../utils/globalDataUtils';
 import MainRouter from './main.router';
-import LocalStorageUtils from '../../utils/localStorageUtils';
+import StorageUtils from '../../utils/storageUtils';
 
 export default class Main extends React.Component {
 
@@ -10,9 +12,11 @@ export default class Main extends React.Component {
     this.state = {};
   }
 
-  componentWillMount() {
-    if (LocalStorageUtils.isLoginTimeout()) {
+  UNSAFE_componentWillMount() {
+    if (StorageUtils.isLoginTimeout()) {
       this.props.history.replace('/login');
+    } else {
+      this.initGlobalData();
     }
   }
 
@@ -23,6 +27,16 @@ export default class Main extends React.Component {
 
   componentWillUnmount() {
 
+  }
+
+  /**
+   * 初始化全局数据
+   */
+  async initGlobalData() {
+    let result = await HttpServer.get('/api/sys/init');
+    if (!!result) {
+      await GlobalDataUtils.init(result);
+    }
   }
 
   render() {
@@ -46,6 +60,7 @@ export default class Main extends React.Component {
             <Link to="/main/icon">Icon Page</Link>
             <Link to="/main/style">Style Page</Link>
             <Link to="/main/request">Request Page</Link>
+            <Link to="/main/router">Router Page</Link>
             <Link to="/main/openlayers">Openlayers Page</Link>
 
           </div>

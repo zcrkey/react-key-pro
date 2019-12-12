@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HttpServer from '../../utils/httpServer';
 import GlobalDataUtils from '../../utils/globalDataUtils';
-import LocalStorageUtils from '../../utils/localStorageUtils';
+import StorageUtils from '../../utils/storageUtils';
 import styles from './login.module.scss';
 
 export default class Login extends React.Component {
@@ -15,7 +15,7 @@ export default class Login extends React.Component {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     // 模式：development、production、test
     console.log("__NODE___：" + process.env.NODE_ENV);
     if (process.env.NODE_ENV == 'development') {
@@ -24,16 +24,15 @@ export default class Login extends React.Component {
         password: '306306'
       });
     }
-
-    console.log('componentWillMount');
-    this.init();
+    console.log('UNSAFE_componentWillMount ');
+    this.initGlobalData();
   }
 
   componentDidMount() {
     console.log('componentDidMount');
   }
 
-  async init() {
+  async initGlobalData() {
     let result = await HttpServer.get('/api/sys/init');
     console.log('init:', result);
     if (!!result) {
@@ -54,7 +53,7 @@ export default class Login extends React.Component {
     });
     console.log('loginIn:', result);
     if (!!result) {
-      LocalStorageUtils.setToken(result.token);
+      StorageUtils.setToken(result.token);
 
       // 跳转到 main 页面
       this.props.history.replace('/main');

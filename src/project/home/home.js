@@ -1,5 +1,5 @@
 import React from 'react';
-import LocalStorageUtils from '../../utils/localStorageUtils';
+import StorageUtils from '../../utils/storageUtils';
 
 const styles = {
   title: {
@@ -23,12 +23,6 @@ export default class Home extends React.Component {
     this.props.history.replace('/login');
   }
 
-  pushPage(location) {
-    if (!!location) {
-      this.props.history.push(location);
-    }
-  }
-
   render() {
     return (
       <div>
@@ -36,11 +30,7 @@ export default class Home extends React.Component {
         <div>
           <button onClick={() => { this.logout() }}>注销</button>
           <br />
-          <button onClick={() => { LocalStorageUtils.removeToken() }}>移除token</button>
-          <br />
-          <button onClick={() => { this.pushPage('/main/event-list') }}>EventList Page</button>
-          <br />
-          <button><a href='/other.html' target='_blank'>新开页面</a></button>
+          <button onClick={() => { StorageUtils.removeToken() }}>移除token</button>
         </div>
       </div >
 
