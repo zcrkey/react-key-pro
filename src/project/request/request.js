@@ -1,5 +1,6 @@
 import React from 'react';
 import GlobalDataUtils from '../../utils/globalDataUtils';
+import LocalStorageUtils from '../../utils/localStorageUtils';
 import HttpServer from '../../utils/httpServer';
 
 const styles = {
@@ -48,7 +49,7 @@ export default class Request extends React.Component {
     });
     console.log(result);
     if (!!result) {
-      GlobalDataUtils.setToken(result.token);
+      LocalStorageUtils.setToken(result.token);
     }
   }
 

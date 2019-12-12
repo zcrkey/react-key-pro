@@ -23,6 +23,7 @@
 ### 三、引入scss，用于实现将scss转成css
   ```
   // 需安装python2.x版本 TODO:安装 node-sass 有时会出错，可能原因是下载文件下载不了
+  //（或者在根目录下创建 .npmrc 文件，并写入 sass_binary_site=https://npm.taobao.org/mirrors/node-sass/ ）
   yarn add sass-loader node-sass --save-dev
   ```
 
@@ -109,7 +110,7 @@
 #### 全局变量
 #### 路由跳转（路由嵌套、路由跳转、路由传参、路由复用、路由拦截器）
 #### http axios qs （get、post、postJson、all、upload、uploads、download）
-#### Redux 
+#### redux react-redux redux-persist
 #### 按钮
 #### 弹出层
 #### 对话框

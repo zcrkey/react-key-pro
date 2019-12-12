@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import MainRouter from './main.router';
+import LocalStorageUtils from '../../utils/localStorageUtils';
 
 export default class Main extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  componentWillMount() {
+    this.isLogin();
   }
 
   componentDidMount() {
@@ -16,6 +21,13 @@ export default class Main extends React.Component {
 
   componentWillUnmount() {
 
+  }
+
+  isLogin() {
+    let token = LocalStorageUtils.getToken();
+    if (!token) {
+      this.props.history.replace('/login');
+    }
   }
 
   render() {

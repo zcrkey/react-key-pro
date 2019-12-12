@@ -36,6 +36,8 @@ export default class Home extends React.Component {
           <button onClick={() => { this.logout() }}>注销</button>
           <br />
           <button onClick={() => { this.pushPage('/main/event-list') }}>EventList Page</button>
+          <br />
+          <button><a href='/other.html' target='_blank'>新开页面</a></button>
         </div>
       </div >
 

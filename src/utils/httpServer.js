@@ -6,6 +6,7 @@
 import Axios from 'axios';
 import Qs from 'qs';
 import GlobalDataUtils from './globalDataUtils';
+import LocalStorageUtils from './localStorageUtils';
 
 export default class HttpServer {
 
@@ -15,11 +16,11 @@ export default class HttpServer {
   static getBaseUrl() {
     let baseURL = '';
     if (process.env.NODE_ENV == 'development') {
-      baseURL = 'http://10.0.7.205:8080/demozz.api';
+      baseURL = 'https://food.tym.com.cn:20004/zz.api';
     } else if (process.env.NODE_ENV == 'debug') {
-      baseURL = 'http://10.0.7.205:8080/demozz.api';
+      baseURL = 'https://food.tym.com.cn:20004/zz.api';
     } else if (process.env.NODE_ENV == 'production') {
-      baseURL = 'http://10.0.7.205:8080/demozz.api';
+      baseURL = 'https://food.tym.com.cn:20004/zz.api';
     }
     return baseURL;
   }
@@ -71,7 +72,6 @@ export default class HttpServer {
         return true;
       }
       if (response.code == '201') {
-        this.addErrorMessage();
         // Dialog.fail('没有权限请求！', {
         //   close: function () {
         //     Actions.reset('LoginPage', {
@@ -168,7 +168,7 @@ export default class HttpServer {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': options.contentType,
-        'zeus-token': GlobalDataUtils.getToken()
+        'zeus-token': LocalStorageUtils.getToken()
       },
       responseType: 'json',
       transformResponse: [function (data) {
@@ -195,7 +195,7 @@ export default class HttpServer {
       // headers: {
       //   'Access-Control-Allow-Origin': '*',
       //   'Content-Type': options.contentType,
-      //   'zeus-token': GlobalDataUtils.getToken()
+      //   'zeus-token': LocalStorageUtils.getToken()
       // },
       responseType: 'json',
       onUploadProgress: (progressEvent) => {
@@ -230,7 +230,7 @@ export default class HttpServer {
   //     headers: {
   //       'Access-Control-Allow-Origin': '*',
   //       'Content-Type': options.contentType,
-  //       'zeus-token': GlobalDataUtils.getToken()
+  //       'zeus-token': LocalStorageUtils.getToken()
   //     },
   //     responseType: 'json',
   //     onDownloadProgress: (progressEvent) => {
