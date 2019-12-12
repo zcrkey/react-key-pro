@@ -30,6 +30,7 @@
   ```
   yarn add react-router-dom --save
   ```
+  * https://reacttraining.com/react-router/web/guides/quick-start
   * 路由嵌套
   * 路由跳转
   * 路由传参
