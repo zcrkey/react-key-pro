@@ -30,7 +30,15 @@ module.exports = {
       "link": "https://github.com/zcrkey/react-key"
     },
     "name": "react-key",
-    "footerText": "React Key JSDoc"
+    "footerText": "React Key JSDoc",
+    "default": {
+      "staticFiles": {
+        "include": ["src/assets/css/"]
+      }
+    },
+    "css": [
+      "jsdoc.css",
+    ]
   },
   // 指定输出配置
   "opts": {
