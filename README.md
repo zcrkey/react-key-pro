@@ -86,6 +86,10 @@
   yarn add qs
   ```
 
+### 十一、将 create-react-app 配置的 webpack.config 提取出来
+  * 创建 init.js 脚本文件，每当运行 yarn install 后，就应该运行 init.js 脚本(修改 react-scripts 包下 scripts 的start.js 、build.js 文件)
+  * webpack.config.js 提取到根目录下，可进行配置
+
 ### 命名规则
   * 文件夹命名规则： aaa-bbb-ccc 方式方式
   * 文件命名规则： aaaBbbCcc 方式方式
