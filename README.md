@@ -160,6 +160,9 @@
 #### http axios qs （get、post、postJson、all、upload、uploads、download）
 #### redux react-redux redux-persist
 #### eslint 暂时无法实现自定义（除非修改 create-react-app 内置 webpack 配置文件）
+#### create-react-app 内置 webpack 配置文件提取出来
+#### 多页面配置 other.html、other.js、App.other.js
+#### jsdoc 注释文档
 #### 按钮
 #### 弹出层
 #### 对话框
