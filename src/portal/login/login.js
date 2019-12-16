@@ -55,6 +55,8 @@ export default class Login extends React.Component {
     if (!!result) {
       StorageUtils.setToken(result.token);
 
+      // 接收一个路由路径，重新登录后跳转到相对应的路由
+
       // 跳转到 main 页面
       this.props.history.replace('/main');
 

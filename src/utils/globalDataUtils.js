@@ -1,13 +1,18 @@
+import GlobalData from './globalData';
 /**
  * 全局数据工具类
+ *
+ * @export
+ * @class GlobalDataUtils
  */
-
-import GlobalData from './globalData';
-
 export default class GlobalDataUtils {
 
   /**
    * 初始化全局数据
+   *
+   * @static
+   * @param {*} data
+   * @memberof GlobalDataUtils
    */
   static async init(data) {
     GlobalData.codes = data.codes;
@@ -21,6 +26,10 @@ export default class GlobalDataUtils {
 
   /**
    * 获取全局URL
+   *
+   * @static
+   * @returns {}
+   * @memberof GlobalDataUtils
    */
   static getGlobalUrl() {
     if (!!GlobalData.url) {
@@ -32,7 +41,11 @@ export default class GlobalDataUtils {
 
   /**
    * 获取 code
-   * @param {*} codeNum 
+   *
+   * @static
+   * @param {*} codeNum
+   * @returns {}
+   * @memberof GlobalDataUtils
    */
   static getCode(codeNum) {
     var codeObject = GlobalData.codes.find((code) => {

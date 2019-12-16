@@ -118,6 +118,22 @@
     }
     ```
 
+### jsdoc 注释文档
+  * 安装 vs code 插件：Document This，快捷键：Ctrl+Alt+D,Ctrl+Alt+D
+  * 安装依赖
+  ```
+    yarn add jsdoc --save-dev
+    yarn add tui-jsdoc-template // 输出模板样式
+  ```
+  * jsdoc.config.js 配置文件(jsdoc.config.js)
+  * 输出文档(jsdoc)
+   ```
+    // 1、-d 指定注释文档输出路径
+    // 2、-c 告诉jsdoc自定义配置文件的位置
+    // 3、-r 告诉jsdoc循环source.include文件夹的子目录
+    jsdoc -c jsdoc.config.js -r
+   ```
+
 ### 命名规则
   * 文件夹命名规则： aaa-bbb-ccc 方式方式
   * 文件命名规则： aaaBbbCcc 方式方式
