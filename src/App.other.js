@@ -4,9 +4,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
-import Main from './portal/main/main';
-import Login from './portal/login/login';
-import Register from './portal/register/register';
+import Other from './portal/other/other';
 import NoMatch from './portal/no-match/noMatch';
 
 // 全部引入
@@ -20,10 +18,8 @@ function App() {
     <HashRouter>
       <Switch>
         {/* exact 严格匹配 */}
-        <Route exact path="/" component={Main} />
-        <Route path="/main" component={Main} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
+        <Route exact path="/" component={Other} />
+        <Route path="/other" component={Other} />
         <Route path="*" component={NoMatch} />
       </Switch>
     </HashRouter>

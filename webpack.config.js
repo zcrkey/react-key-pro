@@ -167,6 +167,8 @@ module.exports = function (webpackEnv) {
       // We include the app code last so that if there is a runtime error during
       // initialization, it doesn't blow up the WebpackDevServer client, and
       // changing JS code would still trigger a refresh.
+      // react-keyother.js => "h:\\zcrkey\\React\\react-key\\src\\other.js"
+      paths.appSrc + '\\other.js',
     ].filter(Boolean),
     output: {
       // The build folder.
@@ -579,8 +581,38 @@ module.exports = function (webpackEnv) {
         Object.assign(
           {},
           {
+            title: "index",
+            filename: "index.html",
             inject: true,
             template: paths.appHtml,
+          },
+          isEnvProduction
+            ? {
+              minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+                removeEmptyAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                keepClosingSlash: true,
+                minifyJS: true,
+                minifyCSS: true,
+                minifyURLs: true,
+              },
+            }
+            : undefined
+        )
+      ),
+      // react-keyother.html
+      new HtmlWebpackPlugin(
+        Object.assign(
+          {},
+          {
+            title: "other",
+            filename: "other.html",
+            inject: true,
+            template: paths.appPublic + '\\other.html', // "h:\\zcrkey\\React\\react-key\\public\\other.html"
           },
           isEnvProduction
             ? {

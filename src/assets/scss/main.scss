@@ -3,7 +3,9 @@
 $key-app-header-height: 90px;
 $key-app-sidebar-width: 240px;
 
-#root {
+#root,
+#root-index,
+#root-other {
   width: 100%;
   height: 100%;
 }
