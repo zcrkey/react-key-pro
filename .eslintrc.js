@@ -47,6 +47,8 @@ module.exports = {
     // 禁止不必要的布尔强制转换
     "no-extra-boolean-cast": "off",
     // debugger
-    "no-debugger": "off"
+    "no-debugger": "off",
+    "react/prop-types": "warn",
+    "react/jsx-no-target-blank": "warn"
   }
 }

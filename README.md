@@ -90,6 +90,34 @@
   * 创建 init.js 脚本文件，每当运行 yarn install 后，就应该运行 init.js 脚本(修改 react-scripts 包下 scripts 的start.js 、build.js 文件)
   * webpack.config.js 提取到根目录下，可进行配置
 
+### 十二、Visual Studio Code 调试 react 项目
+  * Visual Studio Code 安装 Debugger for Chrome 插件
+  * 项目根目录里建一个.vscode 文件夹，然后在里面建立一个launch.json 的文件，并写入以下代码
+    ```
+    {
+      // 使用 IntelliSense 了解相关属性。 
+      // 悬停以查看现有属性的描述。
+      // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+      "version": "0.2.0",
+      "configurations": [
+        {
+          "type": "chrome",
+          "request": "launch",
+          "name": "Launch Chrome",
+          "url": "http://localhost:3000", // 启动项目的地址 
+          "sourceMaps": true,
+          "webRoot": "${workspaceFolder}",
+          "skipFiles": [
+            "node_modules/**"
+          ],
+          "sourceMapPathOverrides": {
+            "webpack:///*": "${webRoot}/*"
+          }
+        }
+      ]
+    }
+    ```
+
 ### 命名规则
   * 文件夹命名规则： aaa-bbb-ccc 方式方式
   * 文件命名规则： aaaBbbCcc 方式方式
