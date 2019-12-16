@@ -128,7 +128,7 @@
   * jsdoc.config.js 配置文件(jsdoc.config.js)
   * 输出文档(jsdoc)
    ```
-    // 1、-d 指定注释文档输出路径
+    // 1、-d 指定注释文档输出路径（已经在 jsdoc.config.js 进行指定）
     // 2、-c 告诉jsdoc自定义配置文件的位置
     // 3、-r 告诉jsdoc循环source.include文件夹的子目录
     jsdoc -c jsdoc.config.js -r
