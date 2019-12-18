@@ -1,5 +1,6 @@
 import React from 'react';
 import StorageUtils from '../../utils/storageUtils';
+import { Button } from 'react-key';
 
 const styles = {
   title: {
@@ -31,6 +32,8 @@ export default class Home extends React.Component {
           <button onClick={() => { this.logout() }}>注销</button>
           <br />
           <button onClick={() => { StorageUtils.removeToken() }}>移除token</button>
+          <br />
+          <Button></Button>
         </div>
       </div >
 
