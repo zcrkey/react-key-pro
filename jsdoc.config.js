@@ -27,10 +27,10 @@ module.exports = {
       "url": "",
       "width": "0px",
       "height": "0px",
-      "link": "https://github.com/zcrkey/react-key"
+      "link": "https://github.com/zcrkey/react-key-pro"
     },
-    "name": "react-key",
-    "footerText": "React Key JSDoc",
+    "name": "react-key-pro",
+    "footerText": "React Key Pro JSDoc",
     "default": {
       "staticFiles": {
         "include": ["src/assets/css/"]
