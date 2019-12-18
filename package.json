@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "yarn": "yarn install",
-    "link:react-key": "npm link react-key",
+    "link:react-key": "yarn link react-key",
+    "unlink:react-key": "yarn unlink react-key",
     "init": "node ./init.js",
     "jsdoc": "jsdoc -c jsdoc.config.js -r",
     "start": "react-scripts start",

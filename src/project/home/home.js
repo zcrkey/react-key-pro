@@ -1,6 +1,6 @@
 import React from 'react';
 import StorageUtils from '../../utils/storageUtils';
-import { Button } from 'react-key';
+import { Button, Input } from 'react-key';
 
 const styles = {
   title: {
@@ -34,6 +34,8 @@ export default class Home extends React.Component {
           <button onClick={() => { StorageUtils.removeToken() }}>移除token</button>
           <br />
           我是来自 React Key NPM 包的按钮组件：<Button></Button>
+          <br />
+          我是来自 React Key NPM 包的输入框组件：<Input></Input>
         </div>
       </div >
 
