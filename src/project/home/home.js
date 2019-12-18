@@ -33,7 +33,7 @@ export default class Home extends React.Component {
           <br />
           <button onClick={() => { StorageUtils.removeToken() }}>移除token</button>
           <br />
-          <Button></Button>
+          我是来自 React Key NPM 包的按钮组件：<Button></Button>
         </div>
       </div >
 
