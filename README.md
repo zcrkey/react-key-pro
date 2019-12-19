@@ -122,8 +122,8 @@
   * 安装 vs code 插件：Document This，快捷键：Ctrl+Alt+D,Ctrl+Alt+D
   * 安装依赖
   ```
-    yarn add jsdoc --save-dev
-    yarn add tui-jsdoc-template // 输出模板样式
+    yarn add jsdoc --dev
+    yarn add tui-jsdoc-template --dev // 输出模板样式
   ```
   * jsdoc.config.js 配置文件(jsdoc.config.js)
   * 输出文档(jsdoc)
