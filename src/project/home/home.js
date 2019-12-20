@@ -2,6 +2,8 @@ import React from 'react';
 import StorageUtils from '../../utils/storageUtils';
 import { Button, Input } from 'react-key';
 
+import 'react-key/lib/index.css';
+
 const styles = {
   title: {
     fontSize: '0.2rem',
@@ -32,10 +34,19 @@ export default class Home extends React.Component {
           <button onClick={() => { this.logout() }}>注销</button>
           <br />
           <button onClick={() => { StorageUtils.removeToken() }}>移除token</button>
-          <br />
-          我是来自 React Key NPM 包的按钮组件：<Button></Button>
-          <br />
-          我是来自 React Key NPM 包的输入框组件：<Input></Input>
+        </div>
+        <br />
+        <h4 style={styles.title}> React Key NPM 组件包</h4>
+        <div>
+          <Button text={'默认按钮'} />
+          <Button type={'primary'} text={'按钮一'} />
+          <Button type={'normal'} text={'按钮二'} />
+          <Button type={'warm'} text={'按钮三'} />
+          <Button type={'danger'} text={'按钮四'} />
+          <Button type={'disabled'} text={'按钮五'} />
+          <div style={{ width: '300px', marginTop: '15px' }}>
+            <Input />
+          </div>
         </div>
       </div >
 
