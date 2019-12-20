@@ -1,6 +1,6 @@
 import React from 'react';
 import StorageUtils from '../../utils/storageUtils';
-import { Button, Input } from 'react-key';
+import { Button, Input, Iconfont } from 'react-key';
 
 import 'react-key/lib/index.css';
 
@@ -38,6 +38,11 @@ export default class Home extends React.Component {
         <br />
         <h4 style={styles.title}> React Key NPM 组件包</h4>
         <div>
+          <Iconfont name={'danxuan'}></Iconfont>
+          <Iconfont name={'yuanxingweixuanzhong'}></Iconfont>
+          <Iconfont name={'fangxingxuanzhong'}></Iconfont>
+          <Iconfont name={'fangxingweixuanzhong'}></Iconfont>
+          <br />
           <Button text={'默认按钮'} />
           <Button type={'primary'} text={'按钮一'} />
           <Button type={'normal'} text={'按钮二'} />
